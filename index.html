@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Payments - PayU</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<script src="script.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,600,700" rel="stylesheet">
+
+</head>
+<body ng-app="payment" ng-controller="paymentController">
+	<div class="sidebar-wpr">
+		<div class="sidebar-path">
+			<div class="content">
+				<div class="heading">My Awesome App</div>
+				<div class="data">C:\AndroidProjects\My_Awesome_App</div>
+				<span class="close-sidebar-path c-pointer">
+					<i class="material-icons">close</i>
+				</span>
+			</div>
+		</div>
+		<div class="sidebar-faq">
+			<div class="title">FAQs</div>
+			<div class="input">
+				<input type="text"/>
+				<i class="material-icons">search</i>
+			</div>
+			<div class="content">
+				<div class="content-item-wpr" ng-repeat="item in [1,2,3,4]">
+					<div class="title">Hash/Signature doesn't Match </div>
+					<div class="fix">Fix: Wrong combination of access key/secret key..</div>
+					<div class="note">
+						<span class="text">This fix helped 300 other developers</span>
+						<span class="tags PAYU pull-right">PAYU</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<span class="close-content c-pointer">
+		<i class="material-icons">close</i>
+	</span>
+
+	<div ng-if="screenNo == 2" class="content-wpr">
+		<div class="super-coder">
+			<img src="images/batman-full.png" alt="">
+		</div>
+		<div class="task-list">
+			<div class="pull-left">
+				<img src="images/investigate.png" alt="">
+				Integrate
+			</div>
+			<div class="pull-right">
+				<img src="images/fix.png" alt="">
+				Fix
+			</div>
+		</div>
+	</div>
+	<div ng-if="(screenNo == 3) || (screenNo == 4) || (screenNo == 16) || (screenNo == 17) || (screenNo == 18)" class="content-wpr">
+		<div class="form-input-wpr">
+			<input placeholder="What do you want to integrate" type="text">
+		</div>
+		<div class="form-submit-wpr text-center">
+			<div class="cust-btn md">INTEGRATE</div>
+		</div>
+		<div ng-if="screenNo == 4" class="get-cred-popup-wpr investigate-popup">
+			<div class="title">
+				PayU Login
+			</div>
+			<p>We need your PayU credentials so that we can fetch your access key and secret key/salt. <br> 
+				We then generate the code snippets to be directly inserted in your project.  </p>
+			<p>Rest assured, your credentials are safe and never stored with us in any form.</p>
+			<div class="username-wpr text-left">
+				<div class="form-label-bold">Username</div>
+				<input placeholder="" type="text">
+			</div>
+			<div class="password-wpr">
+				<div class="form-label-bold">Password</div>
+				<input placeholder="" type="text">
+			</div>
+			<div class="login-wpr">
+				<div class="cust-btn md">LOGIN</div>
+			</div>
+			<span class="close-content c-pointer">
+				<i class="material-icons">close</i>
+			</span>
+		</div>
+		<div ng-if="screenNo == 16" class="activity-popup-wpr investigate-popup">
+			<div class="title">Which activity do you want to integrate this in?</div>
+			<ul class="list-nostyle">
+				<li ng-repeat="item in [1,2,3]">
+					<input type="radio" name="asdasd">
+					<span>PaymentsActivity.java</span>
+				</li>
+			</ul>
+			<div class="new-activity-text">OR create a new Activity</div>
+			<ul class="list-nostyle">
+				<li>
+					<input type="checkbox" name="asdasd">
+					<span>AwesomeAppPayments</span>
+				</li>
+			</ul>
+			<div class="activity-next text-center">
+				<div class="cust-btn md">NEXT</div>
+			</div>
+			<span class="close-content c-pointer">
+				<i class="material-icons">close</i>
+			</span>
+		</div>
+		<div ng-if="screenNo == 17" class="activity-popup-wpr investigate-popup">
+			<div class="title">What technology do you use on backend?</div>
+			<ul class="list-nostyle margin-bottom-50-px">
+				<li ng-repeat="item in [1,2,3,4]">
+					<input type="radio" name="asdasd">
+					<span>JAVA</span>
+				</li>
+			</ul>
+			<div class="activity-next text-center">
+				<div class="cust-btn md">NEXT</div>
+			</div>
+			<span class="close-content c-pointer">
+				<i class="material-icons">close</i>
+			</span>
+		</div>
+		<div ng-if="screenNo == 18" class="host-file-wpr investigate-popup">
+			<div class="heading">Download and host these files on your server and provide the URL's of these files</div>
+			<div class="note margin-bottom-20-px">Please ensure that these are publicly available</div>
+			<div class="return-url-wpr margin-bottom-20-px">
+				<div class="text">
+					returnUrl.php
+					<i class="material-icons">cloud_download</i>
+				</div>
+				<div class="cust-input-wpr lg">
+					<input type="text">
+				</div>
+			</div>
+			<div class="notify-url-wpr margin-bottom-20-px">
+				<div class="text">
+					notifyUrl.php
+					<i class="material-icons">cloud_download</i>
+				</div>
+				<div class="cust-input-wpr lg">
+					<input type="text">
+				</div>
+			</div>
+			<div class="download-host text-center">
+				<div class="cust-btn md">NEXT</div>
+			</div>
+			<span class="close-content c-pointer">
+				<i class="material-icons">close</i>
+			</span>
+		</div>
+	</div>
+
+	<div ng-if="(screenNo == 21) || screenNo == 22" class="content-wpr">
+		<div class="int-progress">
+			<div class="title">Integrating</div>
+			<div class="sub-title">PAYU - UPI PAYMENTS</div>
+			<div ng-if="screenNo == 21" class="progress-bar-wpr">
+				<div id="integration-progress-bar" class="bar"></div>
+			</div>
+			<div class="title margin-bottom-10-px">Actions</div>
+			<ul class="actions-list list-nostyle">
+				<li ng-repeat="item in [1,2,3,4,5]">
+					<span>Fetching your access key, vanity key and secret key</span>
+					<span class="done-text">Done</span>
+				</li>
+			</ul>
+		</div>
+		<div ng-if="screenNo == 22" class="launch-box-wpr">
+			<div class="launch-img-wpr">
+				<img src="images/launch.png" alt="">
+			</div>
+			<div class="launch-content-wpr">
+				<div class="heading">Integration should be done now</div>
+				<div class="sub-heading">You can now build and run the project</div>
+				<div class="feedback">
+					Did it help ?
+					<div class="cust-btn sm">YES</div>
+					<div class="cust-btn sm warn">NO</div>
+				</div>
+				<div class="note">We are collecting this information for our feedback</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
