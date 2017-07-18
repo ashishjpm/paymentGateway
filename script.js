@@ -1,8 +1,8 @@
 var app = angular.module("payment", []); 
 
 app.controller("paymentController", function($scope, $timeout, $interval) {
-	$scope.screenNo = 1;
-	var screens = [1,2,3,4,16,17,18,19,20,21,22];// by preview
+	$scope.screenNo = 13;
+	var screens = [1,2,10,13,16,17,18,19,20,21,22];// by preview
 	var counter = 1;
 
 	$interval(function(){
