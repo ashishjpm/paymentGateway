@@ -99,17 +99,45 @@ body{
 .cust-input-wpr{
     text-align: center;
     width: 300px;
-    margin: 10px 0;
+    margin: 5px 0;
+    position: relative;
 }
 .cust-input-wpr>input{
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 6px 10px;
     border: 1px solid rgba(33,28,61,1);
     border-radius: 4px;
     font-size: 16px;
 }
 .cust-input-wpr.lg{
-    width: 450px !important;
+    width: 500px !important;
+}
+.cust-input-wpr .validation{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    padding: 3px;
+    line-height: 0;
+    border-radius: 50%;
+    color: #eee;
+    margin: 5px 0px;
+}
+.cust-input-wpr .validation>i{
+    font-size: 16px;
+    font-weight: 600;
+}
+.cust-input-wpr .validation.success{
+    background: rgba(62,174,144,1);
+}
+.cust-input-wpr .validation.fail{
+    background: rgba(250,107,78,1);
+}
+.validation-err{
+    color: rgba(250,107,78,1);
+    text-align: right;
+    margin-top: 7px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /*PAD-MARG*/
@@ -146,6 +174,44 @@ body{
     background: #fbfcfc;
 }
 
+/*Sidebar for screen 1*/
+.sidebar-wpr .sidebar-heading{
+    padding: 0px 20px;
+    margin-top: 30px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+.sidebar-wpr .sidebar-recent-project{
+    padding: 0pc 20px;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+}
+.sidebar-wpr .sidebar-recent-project .recent-project-item-wpr{
+    border-bottom: 1px solid rgba(60,71,145,0.25);    
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+.recent-project-item-wpr .title{
+    font-size: 17px;
+    font-weight: 700;
+    color: rgba(56,58,99,1);
+    line-height: 25px
+}
+.recent-project-item-wpr .path{
+    font-size: 12px;
+    color: rgba(118,118,118,1);
+    padding-bottom: 8px
+}
+.recent-project-item-wpr .note{
+    font-size: 12px;
+    font-style: italic;
+    color: rgba(118,118,118,1);
+    font-weight: 500
+}
+/*Sidebar for screen 2 and more*/
 .sidebar-path{
     padding: 0px 20px;
 }
@@ -275,6 +341,30 @@ body{
 .super-coder>img{
     width: 100%;
 }
+/*for screen 1*/
+.get-source-folder{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.get-source-folder .heading{
+    font-size: 20px;
+    color: rgba(33,28,61,1);
+    font-weight: 500;
+}
+.get-source-folder .box{
+    padding: 30px;
+    margin: 20px 0px;
+    border: 1px dashed rgba(33,28,61,0.7);
+    border-radius: 5px;
+}
+.get-source-folder .box .message{
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(33,28,61,1);
+}
+
+/*for screen 2*/
 .content-wpr>.task-list{
     width: 50%;
     margin: auto;
@@ -310,6 +400,15 @@ body{
 }
 
 /*Popup to get payU credentials*/
+.popup-mask{
+    position: absolute;
+    background: rgba(0,0,0,0);
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 .investigate-popup{
     background: rgba(250,250,250,1);
     position: absolute;
@@ -387,10 +486,13 @@ body{
     margin-top: 10px;
 }
 .host-file-wpr .text{
-    font-weight: 500;
     font-size: 15px;
+    vertical-align: super;
 }
-.host-file-wpr .text>i{
+.host-file-wpr .form-wpr{
+    font-weight: 600;
+}
+.host-file-wpr .form-wpr .cloud-download{
     margin-left: 10px;
 }
 .host-file-wpr .download-host{

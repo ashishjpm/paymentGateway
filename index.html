@@ -16,7 +16,17 @@
 
 </head>
 <body ng-app="payment" ng-controller="paymentController">
-	<div class="sidebar-wpr">
+	<div ng-if="screenNo == 1" class="sidebar-wpr">
+		<div class="sidebar-heading">Recent Projects</div>
+		<div class="sidebar-recent-project">
+			<div class="recent-project-item-wpr" ng-repeat="item in [1,2,3,4,5,6,7,8]">
+				<div class="title">Freelancing App</div>
+				<div class="path">C:\AndroidProjects\Freelancing_App</div>
+				<div class="note">Last opened 3 days ago</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="screenNo != 1" class="sidebar-wpr">
 		<div class="sidebar-path">
 			<div class="content">
 				<div class="heading">My Awesome App</div>
@@ -49,11 +59,17 @@
 		<i class="material-icons">close</i>
 	</span>
 
-	<div ng-if="screenNo == 2" class="content-wpr">
+	<div ng-if="(screenNo == 1) || (screenNo == 2)" class="content-wpr">
 		<div class="super-coder">
 			<img src="images/batman-full.png" alt="">
 		</div>
-		<div class="task-list">
+		<div class="get-source-folder" ng-if="screenNo == 1">
+			<div class="heading">Before we start please link your source folder here</div>
+			<div class="box">
+				<div class="message">Drop your source folder here <br> or <br> Click here to locate the folder</div>
+			</div>
+		</div>
+		<div ng-if="screenNo == 2" class="task-list">
 			<div class="pull-left">
 				<img src="images/investigate.png" alt="">
 				Integrate
@@ -64,7 +80,11 @@
 			</div>
 		</div>
 	</div>
-	<div ng-if="(screenNo == 3) || (screenNo == 4) || (screenNo == 16) || (screenNo == 17) || (screenNo == 18)" class="content-wpr">
+	<div ng-if="(screenNo == 3) || (screenNo == 4) || (screenNo == 16) || (screenNo == 17) || (screenNo == 18) || (screenNo == 19) || (screenNo == 20)" class="content-wpr">
+
+		<!-- Mask for popup need to be in every popup screens ie. 16,17,18,19,20... -->
+		<div ng-if="(screenNo == 16) || (screenNo == 17) || (screenNo == 18) || (screenNo == 19) || (screenNo == 20)" class="popup-mask"></div>
+
 		<div class="form-input-wpr">
 			<input placeholder="What do you want to integrate" type="text">
 		</div>
@@ -130,29 +150,42 @@
 				<i class="material-icons">close</i>
 			</span>
 		</div>
-		<div ng-if="screenNo == 18" class="host-file-wpr investigate-popup">
+		<div ng-if="(screenNo == 18) || (screenNo == 19) || (screenNo == 20)" class="host-file-wpr investigate-popup">
 			<div class="heading">Download and host these files on your server and provide the URL's of these files</div>
 			<div class="note margin-bottom-20-px">Please ensure that these are publicly available</div>
-			<div class="return-url-wpr margin-bottom-20-px">
-				<div class="text">
-					returnUrl.php
-					<i class="material-icons">cloud_download</i>
+			<div class="form-wpr">
+				<div class="return-url-wpr margin-bottom-20-px">
+					<div>
+						<span class="text">returnUrl.php</span>
+						<i class="material-icons cloud-download">cloud_download</i>
+					</div>
+					<div class="cust-input-wpr lg">
+						<input type="text">
+						<span ng-if="(screenNo == 19) || (screenNo == 20)" class="validation success">
+							<i class="material-icons">check</i>
+						</span>
+					</div>
 				</div>
-				<div class="cust-input-wpr lg">
-					<input type="text">
-				</div>
-			</div>
-			<div class="notify-url-wpr margin-bottom-20-px">
-				<div class="text">
-					notifyUrl.php
-					<i class="material-icons">cloud_download</i>
-				</div>
-				<div class="cust-input-wpr lg">
-					<input type="text">
+				<div class="notify-url-wpr margin-bottom-20-px">
+					<div>
+						<span class="text">notifyUrl.php</span>
+						<i class="material-icons cloud-download">cloud_download</i>
+					</div>
+					<div class="cust-input-wpr lg">
+						<input type="text">
+						<span ng-if="screenNo == 19" class="validation fail">
+							<i class="material-icons">close</i>
+						</span>
+						<span ng-if="screenNo == 20" class="validation success">
+							<i class="material-icons">check</i>
+						</span>
+						<div ng-if="screenNo == 19" class="validation-err">NotifyURL is not properly hosted</div>
+					</div>
 				</div>
 			</div>
 			<div class="download-host text-center">
-				<div class="cust-btn md">NEXT</div>
+				<div ng-if="screenNo != 20" class="cust-btn md">NEXT</div>
+				<div ng-if="screenNo == 20" class="cust-btn md">INTEGRATE</div>
 			</div>
 			<span class="close-content c-pointer">
 				<i class="material-icons">close</i>
