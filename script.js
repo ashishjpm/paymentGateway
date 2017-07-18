@@ -5,18 +5,19 @@ app.controller("paymentController", function($scope, $timeout, $interval) {
 	var screens = [1,2,3,4,16,17,18,19,20,21,22];// by preview
 	var counter = 1;
 
-	// $interval(function(){
-	// 	$scope.screenNo = screens[counter];
-	// 	if(screens[counter] == 21){
-	// 		runProgressBar();
-	// 	}
-	// 	if(counter < screens.length - 1){
-	// 		counter++;
-	// 	}else{
-	// 		counter = 0;
-	// 	}
-	// }, 1000)
+	$interval(function(){
+		$scope.screenNo = screens[counter];
+		if(screens[counter] == 21){
+			runProgressBar();
+		}
+		if(counter < screens.length - 1){
+			counter++;
+		}else{
+			counter = 0;
+		}
+	}, 2000)
 
+	// For integration-progress-bar animation uncomment below
 	// $timeout(function() {
 	// 	runProgressBar()
 	// }, 500);
